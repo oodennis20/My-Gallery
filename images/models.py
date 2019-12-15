@@ -32,3 +32,8 @@ class Image(models.Model):
     def search_by_name(cls,search_term):
         images = cls.objects.filter(name__icontains=search_term)
         return images
+    
+    @classmethod
+    def view_location(cls,name):
+        location = cls.objects.filter(location=name)
+        return images
