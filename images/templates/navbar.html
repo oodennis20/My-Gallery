@@ -10,7 +10,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Clyde's Gallery</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -20,6 +21,14 @@
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Location</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    {% for location in location %}
+                    <a class="dropdown-item" href="/?location={{location.id}}">{{location.name}}</a>
+                    {%endfor%}
+                </div>
+            </div>
             <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
                 <input type="text" class="form-control" placeholder="Search Image" name="image">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

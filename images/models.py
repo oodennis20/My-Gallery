@@ -10,7 +10,7 @@ class categories(models.Model):
     def __str__(self):
         return self.name
 
-class location(models.Model):
+class Location(models.Model):
     name=models.CharField(max_length=30)
 
     def __str__(self):
@@ -21,7 +21,7 @@ class Image(models.Model):
     description = HTMLField()
     gallery_image = models.ImageField(upload_to='snap/', blank=True)
     categories = models.ManyToManyField(categories)
-    location = models.ForeignKey(location)
+    location = models.ForeignKey(Location)
 
     @classmethod
     def all_images():
