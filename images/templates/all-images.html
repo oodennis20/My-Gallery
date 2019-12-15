@@ -6,7 +6,7 @@
         {% for image in images %}
         <!--Display image Image images  -->
         <div class="card">
-            <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal"style="width:400px;height:250px;">
+            <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" style="width:400px;height:250px;">
         </div>
 
         {% endfor %}
@@ -21,25 +21,22 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <h5 class="modal-title" id="exampleModalLongTitle">{{image.name}}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <div class="modal-body">
-                <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal">
-                <p>{{image.description}}</p>
-                <p>{{image.location}}</p>
-                {% for category in image.categories.all %}
-                <p> Category:{{ category.name }} <p>
-                    {% endfor %}
-                <!-- The button used to copy the text -->
-                <button onclick="myFunction()">Copy Link</button>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+            <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal"
+                style="width:480px;height:350px;">
+            <!-- <h5 class="modal-title" id="exampleModalLongTitle">Title: {{image.name}}</h5> -->
+            <p>About: {{image.description}}</p>
+            <p>Location: {{image.location}}</p>
+            {% for category in image.categories.all %}
+            <p> Category: {{ category.name }} <p>
+            {% endfor %}
+            <!-- The button used to copy the text -->
+            <button onclick="myFunction()">Copy Link</button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
     </div>
+</div>
 </div>
 
 
