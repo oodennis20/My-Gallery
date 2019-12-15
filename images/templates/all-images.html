@@ -25,6 +25,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Title: {{image.name}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
             </div>
             <div class="modal-body">
                 <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" size="100px200">
@@ -34,7 +36,7 @@
                 <p> Category: {{ category.name }} </p>
                 {% endfor %}
                 <!-- The button used to copy the text -->
-                <button type="button" name="button" class="container-fluid" value="{{image.gallery_image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
+                <button type="button" name="button" class="btn btn-info" value="{{image.gallery_image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
             </div>
         </div>
         <div class="modal-footer">

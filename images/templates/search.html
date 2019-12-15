@@ -4,22 +4,27 @@
 
     <div class="row">
         {% if images%}
-        <h2>{{ images|length }} pieces of {{message}} images found</h2>
+        <h2 class="capitalize">{{ images|length }} pieces of {{message}} images found</h2>
         {% else %}
-        <h2> Found 0 images for the search term {{message}}</h2>
+        <h2> No images found {{message}}</h2>
         {% endif %}
 
     </div>
-
+    <hr>
     <div class="row">
-
-        {% if images %}
-        {% for image in images %}
-        <div class="col-sm-6 col-md-3">
-            <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" style="width:400px;height:250px;">
+        <div class="container">
+            <div class="card-columns">
+                {% if images %}
+                {% for image in images %}
+                <div class="card border-secondary">
+                    <div class="card-header">
+                        <h4>{{image.name}}</h4>
+                    </div>
+                    <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" size="100px200">
+                {% endfor %}
+                </div>
+            </div>
+            {% endif %}
         </div>
-        {% endfor %}
-        {% endif %}
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
