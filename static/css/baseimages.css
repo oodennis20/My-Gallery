@@ -1,3 +1,5 @@
-h1{
-    color: green;
-}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
