@@ -24,13 +24,13 @@ class Image(models.Model):
     location = models.ForeignKey(Location)
 
     @classmethod
-    def all_images():
+    def all_images(self):
 
         return Image.objects.all()
 
     @classmethod
     def search_by_category(cls,search_images):
-        images = cls.objects.filter(categories_name__icontains=search_images)
+        images = cls.objects.filter(categories__name__icontains=search_images)
         return images
     
     @classmethod
