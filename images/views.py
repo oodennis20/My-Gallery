@@ -3,5 +3,12 @@ from django.http  import HttpResponse
 
 # Create your views here.
 def welcome(request):
-    return HttpResponse("Welcome to Gallery")
+    return render(request, 'welcome.html')
+
+def image(request,image_id):
+    try:
+        image = Image.objects.get(id = image_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"all-images/image.html", {"image":image})
 
