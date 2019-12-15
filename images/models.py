@@ -29,8 +29,8 @@ class Image(models.Model):
         return Image.objects.all()
 
     @classmethod
-    def search_by_name(cls,search_term):
-        images = cls.objects.filter(name__icontains=search_term)
+    def search_by_category(cls,search_images):
+        images = cls.objects.filter(categories_name__icontains=search_images)
         return images
     
     @classmethod
@@ -39,6 +39,6 @@ class Image(models.Model):
         return location
     
     @classmethod
-    def view_categories(cls,name):
-        categories = cls.objects.filter(categories=name)
+    def view_category(cls,name):
+        categories = cls.objects.filter(categories=cat)
         return categories
