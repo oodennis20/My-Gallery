@@ -36,4 +36,4 @@ class Image(models.Model):
     @classmethod
     def view_location(cls,name):
         location = cls.objects.filter(location=name)
-        return images
+        return location
