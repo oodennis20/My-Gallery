@@ -11,19 +11,19 @@
 
     </div>
     <hr>
-    <div class="row">
-        <div class="container">
-            <div class="card-columns">
-                {% if images %}
-                {% for image in images %}
-                <div class="card border-secondary">
+    <div class="container">
+        <div class="row">
+            {% if images %}
+            {% for image in images %}
+                <div class="card col-md-4">
+                    <div class="card border-secondary">
                     <div class="card-header">
                         <h4>{{image.name}}</h4>
                     </div>
                     <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" size="100px200">
-                {% endfor %}
                 </div>
             </div>
+                {% endfor %}
             {% endif %}
         </div>
     </div>
